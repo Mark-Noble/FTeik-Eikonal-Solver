@@ -17,7 +17,7 @@
 
 # FTeik-Eikonal-Solver
 
-FTeik 2D and 3D Eikonal solver to compute first arrival traveltimes in a heterogeneous isotropic velocity model, with the possibility to use different grid spacing in all directions.
+FTeik: 2D and 3D Eikonal solver to compute first arrival traveltimes in a heterogeneous isotropic velocity model, with the possibility to use different grid spacing in all directions.
 
 ## Reference paper
 Detailed implementation of local operator and global propagation scheme implemented in these subroutines come form the paper of : M. Noble, A. Gesret and N. Belayouni, 2014, Accurate 3-D finite difference computation of traveltimes in strongly heterogeneous media, Geophys.J.Int.,199,(3),1572-158.
@@ -28,11 +28,13 @@ Detailed implementation of local operator and global propagation scheme implemen
 
 The Eikonal solver subroutine includes 2 files:
 - In 2D fteik2d.f90 and Include_FTeik2d.f
+- In 3D fteik3d.f90 and Include_FTeik3d.f
 
 The subroutines are written in Fortran 90
 
 The package comes along with a simple example of a main program to show how to call the Eikonal solver
 - In 2D mainFTeik2d.f90
+- In 3D mainFTeik2d.f90
 
 With the Gnu compiler "gfortran", it is recommended to use the options. Also included an example of a Makefile
   -O3 -ffree-form
@@ -59,7 +61,7 @@ With the Gnu compiler "gfortran", it is recommended to use the options. Also inc
            the same as in Podvin and Lecomte algorithm.
 
  **NOTE 2**: In order to get accurate traveltimes, all real numbers (scalars and arrays)
-           must be decalred in double precision.
+           must be declared in double precision.
 
 - integer*4 - nz,nx,ny : Dimensions of the time field array tt
                       in 2D tt(nz,nx) or in 3D tt(nz,nx,ny)
@@ -72,7 +74,7 @@ With the Gnu compiler "gfortran", it is recommended to use the options. Also inc
  - real*8    - slow     : Slowness field array: slow(nz,nx) or slow(nz,nx,ny)
 
  - real*8    - zs,xs, : Point source coordinates referred expressed in meters
-                    Licit ranges: [0.0,(nz-1.)*dzin][0.0,(nx-1.)*dxin]
+                    Licit ranges: [0.0,(nz-1.)*dzin] [0.0,(nx-1.)*dxin]
 
  - integer*4 - epsin : radius in number of grid points arround source where then
                    spherical approximation will be used (for most applications

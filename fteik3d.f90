@@ -75,7 +75,7 @@
 
   real(kind = 8), parameter :: zerr = 1.d-4
   real(kind = 8), parameter :: Big = 99999.d0
-  real(kind = 8) :: eps
+  integer(kind = 4),intent(in) :: eps
 
     real(kind = 8), dimension(nz,nx,ny), intent(in) :: slow
     real(kind = 8), dimension(nz,nx,ny), intent(out) :: tt

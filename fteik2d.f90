@@ -104,7 +104,7 @@ subroutine fteik2d(slow, tt, nz, nx, zsrc, xsrc, dz, dx, eps, n_sweep)
     if ( max(nz, nx) .gt. nmax ) stop "Error: must increase size of NMAX"
     if ( dz .le. 0.d0 .or. dx .le. 0.d0 ) stop "Error: grid spacing dz, dx too small"
     if ( n_sweep .lt. 1 ) stop "Error: wrong sweep number"
-    if ( minval(slow) .le. 0.d0 .or. maxval(slow) .ge. 1.d0 ) stop "Error: slownesses are strange"
+    if ( minval(slow) .le. 0.d0 ) stop "Error: slownesses are strange"
     if ( zsrc .lt. 0.d0 .or. zsrc .gt. dfloat(nz-1) * dz &
          .or. xsrc .lt. 0.d0 .or. xsrc .gt. dfloat(nx-1) * dx ) &
       stop "Error: source out of bounds"

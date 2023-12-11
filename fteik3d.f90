@@ -337,7 +337,7 @@
         sgntz = 1 ; sgntx = -1 ; sgnty = 1
         sgnvz = 1 ; sgnvx = 0 ; sgnvy = 1
         do k = max(2,ysi),ny
-          do j = xsi+1,1,-1
+          do j = xsi,1,-1
             do i = max(2,zsi),nz
               include "Include_FTeik3d.f"
             end do
@@ -347,7 +347,7 @@
         ! Third sweeping: Top->Bottom ; West->East ; North->South
         sgntz = 1 ; sgntx = 1 ; sgnty = -1
         sgnvz = 1 ; sgnvx = 1 ; sgnvy = 0
-        do k = ysi+1,1,-1
+        do k = ysi,1,-1
           do j = max(2,xsi),nx
             do i = max(2,zsi),nz
               include "Include_FTeik3d.f"
@@ -358,8 +358,8 @@
         ! Fouth sweeping: Top->Bottom ; East->West ; North->South
         sgntz = 1 ; sgntx = -1 ; sgnty = -1
         sgnvz = 1 ; sgnvx = 0 ; sgnvy = 0
-        do k = ysi+1,1,-1
-          do j = xsi+1,1,-1
+        do k = ysi,1,-1
+          do j = xsi,1,-1
             do i = max(2,zsi),nz
               include "Include_FTeik3d.f"
             end do
@@ -371,7 +371,7 @@
         sgnvz = 0 ; sgnvx = 1 ; sgnvy = 1
         do k = max(2,ysi),ny
           do j = max(2,xsi),nx
-            do i = zsi+1,1,-1
+            do i = zsi,1,-1
               include "Include_FTeik3d.f"
             end do
           end do
@@ -381,8 +381,8 @@
         sgntz = -1 ; sgntx = -1 ; sgnty = 1
         sgnvz = 0 ; sgnvx = 0 ; sgnvy = 1
         do k = max(2,ysi),ny
-          do j = xsi+1,1,-1
-            do i = zsi+1,1,-1
+          do j = xsi,1,-1
+            do i = zsi,1,-1
               include "Include_FTeik3d.f"
             end do
           end do
@@ -393,9 +393,9 @@
         sgnvz = 0 ; sgnvx = 1 ; sgnvy = 0
 
 
-       do k = ysi+1,1,-1
+       do k = ysi,1,-1
          do j = max(2,xsi),nx
-           do i = zsi+1,1,-1
+           do i = zsi,1,-1
               include "Include_FTeik3d.f"
             end do
           end do
@@ -404,9 +404,9 @@
         ! Eighth sweeping: Bottom->Top ; East->West ; North->South
         sgntz = -1 ; sgntx = -1 ; sgnty = -1
         sgnvz = 0 ; sgnvx = 0 ; sgnvy = 0
-        do k = ysi+1,1,-1
-          do j = xsi+1,1,-1
-            do i = zsi+1,1,-1
+        do k = ysi,1,-1
+          do j = xsi,1,-1
+            do i = zsi,1,-1
               include "Include_FTeik3d.f"
             end do
           end do
